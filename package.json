@@ -3,11 +3,17 @@
   "version": "0.0.1",
   "description": "Swiss Army Knife",
   "main": "dist/main.js",
+  "browser": "dist/main.js",
   "homepage": "https://github.com/qietuchildren/sak.js#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qietuchildren/sak.js.git"
   },
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config ./build/webpack.config.js"
@@ -22,10 +28,13 @@
   "dependencies": {
     "@types/js-cookie": "^2.2.6",
     "js-cookie": "^2.2.1",
-    "ts-loader": "^8.0.3",
     "typescript": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"

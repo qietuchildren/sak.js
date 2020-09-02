@@ -3,7 +3,7 @@ import MathUtils from '../lib/math'
 import DateUtils from '../lib/date'
 import UrlUtils from '../lib/url'
 
-export {
+export default {
   CookieUtils,
   MathUtils,
   DateUtils,
