@@ -6,7 +6,10 @@ module.exports = {
   entry: './src/index.ts',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    // libraryTarget: "es",
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     rules: [
