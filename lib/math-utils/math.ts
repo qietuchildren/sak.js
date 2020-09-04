@@ -1,6 +1,3 @@
-const utils = require('./utils')
-
-
 /**
  * 获取指定范围随机数
  * @param M 起始数
@@ -10,24 +7,49 @@ function getRandomRange(min: number, max: number) {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-
 /**
- * 阿拉伯数字转中文数字
- * 
- * @param {String} num 阿拉伯数字/字符串 , 科学记数法字符串
- * @param {Object} opration 转换配置
- *                          {
- *                              ww: {万万化单位 | false}
- *                              tenMin: {十的口语化 | false}
- *                          }
- * @returns String
+ * 将数字转换成大写中文数字
+ * @param {number} num 入参数字 
+ * @returns {string} 返回中文数字
  */
-function numberToChinese(num: number, options?: any) {
-
+function numToChinese(num: any) {
+  if (!/^\d*(\.\d*)?$/.test(num)) {
+    alert("Number is wrong!");
+    return "Number is wrong!";
+  }
+  var AA = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九");
+  var BB = new Array("", "十", "百", "千", "万", "亿", "点", "");
+  var a: any = ("" + num).replace(/(^0*)/g, "").split("."),
+    k = 0,
+    re = "";
+  for (var i = a[0].length - 1; i >= 0; i--) {
+    switch (k) {
+      case 0:
+        re = BB[7] + re;
+        break;
+      case 4:
+        if (!new RegExp("0{4}\\d{" + (a[0].length - i - 1) + "}$").test(a[0]))
+          re = BB[4] + re;
+        break;
+      case 8:
+        re = BB[5] + re;
+        BB[7] = BB[5];
+        k = 0;
+        break;
+    }
+    if (k % 4 == 2 && a[0].charAt(i + 2) != '0' && a[0].charAt(i + 1) == '0') re = AA[0] + re;
+    if (a[0].charAt(i) != '0') re = AA[a[0].charAt(i)] + BB[k % 4] + re;
+    k++;
+  }
+  if (a.length > 1) //加上小数部分(如果有小数部分) 
+  {
+    re += BB[6];
+    for (var i = 0; i < a[1].length; i++) re += AA[a[1].charAt(i)];
+  }
+  return re;
 }
 
-console.log(numberToChinese(1234567))
-
 export default {
+  numToChinese,
   getRandomRange
 }
