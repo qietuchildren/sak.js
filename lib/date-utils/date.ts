@@ -1,14 +1,3 @@
-enum RangeType {
-  'y',
-  'M',
-  'w',
-  'd',
-  'h',
-  'm',
-  's',
-  'ms'
-}
-
 /**
  * 根据开始时间、结束时间 计算不同rangeType（时间区间格式，年、月、日等）的时间区间
  * @param startTime 开始时间
@@ -16,31 +5,31 @@ enum RangeType {
  * @param rangeType 时间区间类型 年 y、月 M、日 d、周 w、时 h、分 m、秒 s、毫秒 ms
  * 
  */
-function calcTimeRange(startTime: Date, endTime: Date, rangeType: RangeType) {
-  let timeLen: number = 0
+function calcTimeRange(startTime: Date, endTime: Date, rangeType: string) {
+  let timeLen: number = 1
   const oneMin = 1000 * 60
   switch (rangeType) {
-    case RangeType['y']:
+    case 'y':
       timeLen = oneMin * 60 * 24 * 365
       break;
-    case RangeType['M']:
+    case 'M':
       timeLen = oneMin * 60 * 24 * 365
       break;
-    case RangeType['w']:
+    case 'w':
       timeLen = oneMin * 60 * 24 * 7
       break;
-    case RangeType['d']:
+    case 'd':
       timeLen = oneMin * 60 * 24
       break;
-    case RangeType['h']:
+    case 'h':
       timeLen = oneMin * 60
       break;
-    case RangeType['m']:
+    case 'm':
       timeLen = oneMin
       break;
-    case RangeType['s']:
+    case 's':
       timeLen = 1000
-    case RangeType['ms']:
+    case 'ms':
       timeLen = 1
       break;
     default:
