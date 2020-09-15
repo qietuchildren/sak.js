@@ -1,6 +1,7 @@
 /**
  * 格式化url参数
  * @param url url
+ * @returns {object} url params json
  */
 function param2Obj(url: string) {
   const search = url.split('?')[1]

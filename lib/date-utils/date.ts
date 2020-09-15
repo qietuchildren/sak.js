@@ -3,7 +3,7 @@
  * @param startTime 开始时间
  * @param endTime 结束时间
  * @param rangeType 时间区间类型 年 y、月 M、日 d、周 w、时 h、分 m、秒 s、毫秒 ms
- * 
+ * @return {number} 当前时间区间与当前时间单位之比
  */
 function calcTimeRange(startTime: Date, endTime: Date, rangeType: string) {
   let timeLen: number = 1

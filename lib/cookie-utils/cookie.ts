@@ -11,10 +11,10 @@ function getCookie(key: string) {
 /**
  * 设置cookie
  * @param key cookie key
- * @param token 
+ * @param str cookie str 
  */
-function setCookie(key: string, token: string) {
-  return Cookies.set(key, token)
+function setCookie(key: string, str: string) {
+  return Cookies.set(key, str)
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "sak.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Swiss Army Knife",
   "main": "dist/main.js",
   "browser": "dist/main.js",
